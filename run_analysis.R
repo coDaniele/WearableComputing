@@ -1,9 +1,8 @@
 ######################################################################################
 ##
 ## Johns Hopkins Coursera course Data Science
-## Part 3: Getting and Cleaning Data
-##         Course Project
-## Collect data, prepare clean and tidy dataset for analysis 
+## Part 3: Getting and Cleaning Data, Course Project
+## Collect data and prepare clean and tidy dataset for analysis 
 ##
 ######################################################################################
 ##
@@ -18,15 +17,14 @@
 ####################################################################################
 
 run_analysis <- function() {
-    ## Function that merges the data, adds essential annotation from separate files,
-    ## selects elements and turns out a tidy dataset
+    ## Function that merges the data from several files, adding essential 
+    ## annotation, and selecting elements to return a tidy dataset written
+    ## to txt file
     
-    ##Load necessary packages
-    library(dplyr)
+    ##Load packages
     library(reshape2)
 
     ## Load & merge Training + Test data with subjects, activities and labels
-    
     #Measurement list
     Features <- read.table("./UCI HAR Dataset/features.txt")
     Feats <- Features[,2]
@@ -52,23 +50,22 @@ run_analysis <- function() {
     #Dataset merge
     XData.merge <- rbind(X.Train, X.Test)
 
-    ## Extract mean and SD for each measurement
+    ##Extract mean and SD for each measurement
     mean.list <- grep("mean()", Feats)
     std.list <- grep("std", Feats)
     sel <- c(1,2, (c(mean.list, std.list) + 2))
     XData <- XData.merge[,sel]    
     
-    # Average over Subject.ID and ACtivity
+    ##Average over Subject.ID and Activity
     dataMelt <- melt(XData,id=c("Subject.ID","Activity"), 
                      measure.vars=names(XData)[3:81])
     xData <- dcast(dataMelt, Subject.ID + Activity ~ variable,mean)
     
-    # Factor activity labels, appropriate variable names
-        # Subject ID, Activity, Measurement Mean, Measurement SD, 
+    ##Factor activity labels
     ActLbl <- read.table("./UCI HAR Dataset/activity_labels.txt")
     class(xData$Activity) <- "factor"
-    levels(xData$Activity) <- ActLbl[,2]
+    levels(xData$Activity) <- ActLbl[,2]    
     
-    # Make tidy new dataset into a txt file
-    write.table(xData, file = "tidydata.txt")
+    #Make tidy new dataset into a txt file
+    write.table(xData, file = "tidydata.txt", row.names=FALSE)
 }

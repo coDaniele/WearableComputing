@@ -13,7 +13,8 @@ The dataset is downloaded from https://d396qusza40orc.cloudfront.net/getdata%2Fp
   
 The R script run_analysis.R opens the datafiles in the set to extract the data from txt file format, combining several files into one merged dataset. Specifically, a Training and a Test dataset are merged and annotated using columns denonting study subject and experimental activity. Collumn headers are extracted from a feature file and used to select the relevant portion of the data. 
 
-Once the datasets are merged and annotated, the measurements are averaged per subject and experimental activity.
+Once the datasets are merged and annotated, the measurements are averaged per subject and experimental activity.  
+The data frame at the end consists of 180 rows (30 subjects, each performing 6 activities) and 81 variables (including 79 mean values and standard deviations of the dataset). A code book is provided.
 
 
 ##Note:

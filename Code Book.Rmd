@@ -33,4 +33,7 @@ Standard deviation of the filtered, normalized acceleration of the body in the X
 Standard deviation of the filtered, normalized acceleration of the body in the Y-axis, range is [-1, 1].  
 
 ###tBodyAcc-std()-Z
-Standard deviation of the filtered, normalized acceleration of the body in the Z-axis, range is [-1, 1].
+Standard deviation of the filtered, normalized acceleration of the body in the Z-axis, range is [-1, 1].  
+
+###etc...
+Etcetera... Thanks for taking the trouble of reading up to this point. A more complete description of all the variables can be found in de dataset directory (UCI HAR Dataset/features_info.txt)
