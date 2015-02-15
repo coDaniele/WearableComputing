@@ -1,0 +1,36 @@
+---
+title: "Code Book"
+---
+
+#Variables in tidydata.txt
+
+###Subject ID
+The number of the study subject (integer, ranges 1-30)
+
+###Activity
+Factorial description of the experimental activity, levels are:  
+  
+* Walking  
+* WALKING_UPSTAIRS  
+* WALKING_DOWNSTAIRS  
+* SITTING  
+* STANDING  
+* LAYING  
+
+###tBodyAcc-mean()-X
+Mean value of the filtered, normalized acceleration of the body in the X-axis, range is [-1, 1]. 
+
+###tBodyAcc-mean()-Y
+Mean value of the filtered, normalized acceleration of the body in the Y-axis, range is [-1, 1].  
+ 
+###tBodyAcc-mean()-Z
+Mean value of the filtered, normalized acceleration of the body in the Z-axis, range is [-1, 1].  
+
+###tBodyAcc-std()-X
+Standard deviation of the filtered, normalized acceleration of the body in the X-axis, range is [-1, 1].
+
+###tBodyAcc-std()-Y
+Standard deviation of the filtered, normalized acceleration of the body in the Y-axis, range is [-1, 1].  
+
+###tBodyAcc-std()-Z
+Standard deviation of the filtered, normalized acceleration of the body in the Z-axis, range is [-1, 1].
